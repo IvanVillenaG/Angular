@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  background-color: #f8eebc;
+  margin-top: 0px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+
+  p {
+    margin: 0;
+    padding: 0;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    a {
+      color: rgb(188, 137, 87);
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

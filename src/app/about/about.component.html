@@ -1,0 +1,21 @@
+<div class="header">
+  <h2 class="title">Acerca de</h2>
+  <app-navbar class="navbar"></app-navbar>
+</div>
+
+<div class="body">
+  <div *ngIf="isLoggedIn; else loginMessage" class="form">
+  <h2>Bienvenido a Animal Crossing: New Horizons</h2>
+  <p>Animal Crossing: New Horizons (あつまれ どうぶつの森 ‘’Atsumare Dōbutsu no Mori’’) es un videojuego de simulación social desarrollado y publicado por Nintendo para Nintendo Switch, cuya fecha de lanzamiento mundial fue el 20 de marzo de 2020. Es la novena entrega de la saga Animal Crossing (incluyendo su edición para dispositivos móviles).</p>
+  <p>Como en entregas previas de la serie Animal Crossing, New Horizons es un videojuego no lineal de simulación de vida a tiempo real. El jugador asume el papel de un personaje personalizable que se mueve por una isla desierta tras comprarle un pack de vacaciones a Tom Nook, un mapache recurrente en la serie.</p>
+  <p></p>
+</div>
+
+<ng-template #loginMessage>
+  <div class="form">
+    <p>Por favor, inicia sesión para comenzar.</p>
+    <button routerLink="/login">Iniciar sesión</button>
+  </div>
+</ng-template>
+
+</div>

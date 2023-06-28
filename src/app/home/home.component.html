@@ -1,0 +1,21 @@
+<div class="header">
+  <h2 class="title">Animal Crossing: New Horizons</h2>
+  <app-navbar class="navbar"></app-navbar>
+</div>
+
+<div class="body">
+  <div *ngIf="isLoggedIn; else loginMessage" class="form">
+    <h3>Bienvenido, {{ userName }}!</h3>
+    <p>¿Que te gustaría ver?</p>
+    <button routerLink="/about">Acerca de</button>
+    <button routerLink="/villagers">Aldeanos</button>
+    <button routerLink="/profile">Perfil</button>
+  </div>
+
+  <ng-template #loginMessage>
+    <div class="form">
+      <p>Por favor, inicia sesión para comenzar.</p>
+      <button routerLink="/login">Iniciar sesión</button>
+    </div>
+  </ng-template>
+</div>

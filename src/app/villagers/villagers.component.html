@@ -1,0 +1,43 @@
+<div class="header">
+  <h2 class="title">Listado de Aldeanos</h2>
+  <app-navbar class="navbar"></app-navbar>
+</div>
+
+<div class="body">
+  <ng-template #loginMessage>
+    <div class="form">
+      <p>Por favor inicia sesión para ver la lista de personajes.</p>
+      <button routerLink="/login">Iniciar sesión</button>
+    </div>
+  </ng-template>
+
+  <div class="villagers-container">
+    <ng-container *ngIf="isLoggedIn; else loginMessage">
+      <div *ngFor="let villager of villagers | slice: (currentPage - 1) * pageSize: currentPage * pageSize"
+        class="villager-card">
+        <h2 class="villager-name">{{ villager.name | uppercase }}</h2>
+        <div class="rounded-image-container">
+          <div class="rounded-image">
+            <img [src]="villager.image" alt="{{ villager.name }}">
+          </div>
+        </div>
+        <div class="villager-info">
+          <div class="info-item">
+            <strong><span class="label">Cumpleaños: </span></strong>
+            <strong><span class="value">{{ villager.birthday }}</span></strong>
+          </div>
+          <div class="info-item">
+            <strong><span class="label">Coletilla: </span></strong>
+            <strong><span class="value">{{ villager.catchPhrase }}</span></strong>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+      <ng-container *ngIf="isLoggedIn;">
+        <div class="navigation-buttons">
+          <button class="navigation-button" (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+          <button class="navigation-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+        </div>
+      </ng-container>
+  </div>
+</div>

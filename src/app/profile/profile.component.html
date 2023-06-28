@@ -1,0 +1,19 @@
+<div class="header">
+  <h2 class="title">Perfil de usuario</h2>
+  <app-navbar class="navbar"></app-navbar>
+</div>
+
+<div class="body">
+  <div *ngIf="userData" class="form">
+    <h3>Información del usuario</h3>
+    <p><strong>Nombre:</strong> {{ userData.name }}</p>
+    <p><strong>Apellidos:</strong> {{ userData.lastName }}</p>
+    <p><strong>Email:</strong> {{ userData.email }}</p>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <div *ngIf="!userData" class="form">
+    <p>Por favor inicia sesión para ver tus datos.</p>
+    <button routerLink="/login">Iniciar sesión</button>
+  </div>
+</div>
